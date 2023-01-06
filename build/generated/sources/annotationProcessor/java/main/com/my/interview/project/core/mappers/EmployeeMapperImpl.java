@@ -1,0 +1,130 @@
+package com.my.interview.project.core.mappers;
+
+import com.my.interview.project.core.domain.Employee;
+import com.my.interview.project.database.mysql.entities.EmployeeDao;
+import com.my.interview.project.web.resources.request.EmployeeRequestDto;
+import com.my.interview.project.web.resources.request.EmployeeUpdateRequestDto;
+import com.my.interview.project.web.resources.response.EmployeeResponseDto;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2023-01-05T23:06:07-0300",
+    comments = "version: 1.5.1.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.jar, environment: Java 11.0.15 (Oracle Corporation)"
+)
+public class EmployeeMapperImpl implements EmployeeMapper {
+
+    @Override
+    public Employee daoToDomain(EmployeeDao dao) {
+        if ( dao == null ) {
+            return null;
+        }
+
+        Employee employee = new Employee();
+
+        employee.setId( dao.getId() );
+        employee.setFirstSurname( dao.getFirstSurname() );
+        employee.setSecondSurname( dao.getSecondSurname() );
+        employee.setFirstName( dao.getFirstName() );
+        employee.setOtherNames( dao.getOtherNames() );
+        employee.setCountry( dao.getCountry() );
+        employee.setIdType( dao.getIdType() );
+        employee.setIdNumber( dao.getIdNumber() );
+        employee.setEmail( dao.getEmail() );
+        employee.setEntryDate( dao.getEntryDate() );
+        employee.setArea( dao.getArea() );
+        employee.setStatus( dao.getStatus() );
+
+        return employee;
+    }
+
+    @Override
+    public EmployeeDao domainToDao(Employee domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        EmployeeDao employeeDao = new EmployeeDao();
+
+        employeeDao.setId( domain.getId() );
+        employeeDao.setFirstSurname( domain.getFirstSurname() );
+        employeeDao.setSecondSurname( domain.getSecondSurname() );
+        employeeDao.setFirstName( domain.getFirstName() );
+        employeeDao.setOtherNames( domain.getOtherNames() );
+        employeeDao.setCountry( domain.getCountry() );
+        employeeDao.setIdType( domain.getIdType() );
+        employeeDao.setIdNumber( domain.getIdNumber() );
+        employeeDao.setEmail( domain.getEmail() );
+        employeeDao.setEntryDate( domain.getEntryDate() );
+        employeeDao.setArea( domain.getArea() );
+
+        employeeDao.setStatus( "Active" );
+
+        return employeeDao;
+    }
+
+    @Override
+    public Employee requestDtoToDomain(EmployeeRequestDto requestDto) {
+        if ( requestDto == null ) {
+            return null;
+        }
+
+        Employee employee = new Employee();
+
+        employee.setFirstSurname( requestDto.getFirstSurname() );
+        employee.setSecondSurname( requestDto.getSecondSurname() );
+        employee.setFirstName( requestDto.getFirstName() );
+        employee.setOtherNames( requestDto.getOtherNames() );
+        employee.setCountry( requestDto.getCountry() );
+        employee.setIdType( requestDto.getIdType() );
+        employee.setIdNumber( requestDto.getIdNumber() );
+        employee.setEntryDate( requestDto.getEntryDate() );
+        employee.setArea( requestDto.getArea() );
+
+        employee.setStatus( "Active" );
+
+        return employee;
+    }
+
+    @Override
+    public Employee requestDtoToDomain(EmployeeUpdateRequestDto requestDto) {
+        if ( requestDto == null ) {
+            return null;
+        }
+
+        Employee employee = new Employee();
+
+        employee.setId( requestDto.getId() );
+        employee.setFirstSurname( requestDto.getFirstSurname() );
+        employee.setSecondSurname( requestDto.getSecondSurname() );
+        employee.setFirstName( requestDto.getFirstName() );
+        employee.setOtherNames( requestDto.getOtherNames() );
+        employee.setCountry( requestDto.getCountry() );
+        employee.setEntryDate( requestDto.getEntryDate() );
+        employee.setArea( requestDto.getArea() );
+
+        return employee;
+    }
+
+    @Override
+    public EmployeeResponseDto domainToResponseDto(Employee domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        EmployeeResponseDto employeeResponseDto = new EmployeeResponseDto();
+
+        employeeResponseDto.setId( domain.getId() );
+        employeeResponseDto.setFirstName( domain.getFirstName() );
+        employeeResponseDto.setSecondSurname( domain.getSecondSurname() );
+        employeeResponseDto.setFirstSurname( domain.getFirstSurname() );
+        employeeResponseDto.setOtherNames( domain.getOtherNames() );
+        employeeResponseDto.setCountry( domain.getCountry() );
+        employeeResponseDto.setEntryDate( domain.getEntryDate() );
+        employeeResponseDto.setArea( domain.getArea() );
+        employeeResponseDto.setEmail( domain.getEmail() );
+        employeeResponseDto.setStatus( domain.getStatus() );
+
+        return employeeResponseDto;
+    }
+}

@@ -1,0 +1,43 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.my.interview.project'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.3'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	runtimeOnly "mysql:mysql-connector-java"
+
+	compileOnly "org.mapstruct:mapstruct:1.5.1.Final"
+	testCompileOnly "org.mapstruct:mapstruct:1.5.1.Final"
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.5.1.Final"
+	testAnnotationProcessor "org.mapstruct:mapstruct- processor:1.5.1.Final"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
